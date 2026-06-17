@@ -1,0 +1,192 @@
+/* ------------------------------------------------------------------ */
+/* Hero — overrides the two-column grid from style.css                 */
+/* ------------------------------------------------------------------ */
+
+.hero {
+    padding: 4.5rem 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+    gap: 0;
+}
+
+.hero-inner {
+    max-width: 620px;
+    padding-bottom: 3rem;
+}
+
+/* Badge */
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+    padding: 0.4rem 1rem;
+    border-radius: 999px;
+    margin-bottom: 1.75rem;
+}
+
+.hero-badge-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--accent);
+    flex-shrink: 0;
+}
+
+/* Title */
+.hero-title {
+    font-size: clamp(2.75rem, 6vw, 4.5rem);
+    margin-bottom: 1.25rem;
+    color: var(--ink);
+}
+
+.hero-title-accent {
+    display: block;
+    color: var(--accent);
+    font-style: normal;
+}
+
+/* Subtitle */
+.hero-subtitle {
+    max-width: 520px;
+    margin: 0 auto 2rem;
+}
+
+/* Buttons — both filled black */
+.hero-actions {
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+/* ------------------------------------------------------------------ */
+/* Mock browser window                                                 */
+/* ------------------------------------------------------------------ */
+
+.hero-visual {
+    width: 100%;
+    display: block;
+}
+
+.mock-window {
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    box-shadow: 0 8px 48px rgba(0, 0, 0, 0.07);
+    overflow: hidden;
+}
+
+.mock-titlebar {
+    background: var(--paper-warm);
+    border-bottom: 1px solid var(--border);
+    padding: 0.75rem 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.mock-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.mock-dot-red    { background: #ff5f57; }
+.mock-dot-yellow { background: #febc2e; }
+.mock-dot-green  { background: #28c840; }
+
+.mock-body {
+    padding: 1.25rem;
+}
+
+/* Stat cards */
+.mock-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.mock-stat {
+    background: var(--paper);
+    border: 1px solid var(--border-soft);
+    border-radius: var(--radius-md);
+    padding: 0.9rem 1.1rem;
+    text-align: left;
+}
+
+.mock-stat-label {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--ink-muted);
+    margin-bottom: 0.25rem;
+}
+
+.mock-stat-value {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    color: var(--ink);
+    line-height: 1.15;
+    margin-bottom: 0.2rem;
+}
+
+.mock-stat-sub {
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: var(--ink-muted);
+}
+
+.mock-sub-danger { color: var(--danger); }
+.mock-sub-accent { color: var(--accent); }
+
+/* Chart bars */
+.mock-chart-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.mock-chart-row {
+    display: grid;
+    grid-template-columns: 52px 1fr;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.mock-chart-label {
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--ink-soft);
+    text-align: right;
+}
+
+.mock-bar-fill {
+    height: 8px;
+    border-radius: 999px;
+}
+
+.mock-fill-amber  { background: #c17f24; }
+.mock-fill-blue   { background: #5b7fa6; }
+.mock-fill-purple { background: #8b5e83; }
+
+/* ------------------------------------------------------------------ */
+/* Responsive                                                          */
+/* ------------------------------------------------------------------ */
+
+@media (max-width: 600px) {
+    .mock-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-visual {
+        display: none;
+    }
+}
