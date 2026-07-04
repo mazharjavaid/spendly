@@ -90,7 +90,47 @@ def logout():
 
 @app.route("/profile")
 def profile():
-    return "Profile page — coming in Step 4"
+    if not session.get("user_id"):
+        return redirect(url_for("login"))
+
+    user = {
+        "name": "Demo User",
+        "email": "demo@spendly.com",
+        "initials": "DU",
+        "member_since": "March 2026",
+    }
+
+    stats = [
+        {"label": "Total Spent",  "value": "Rs. 14,000", "sub": "This year", "sub_class": ""},
+        {"label": "Transactions", "value": "8",          "sub": "Recorded",  "sub_class": ""},
+        {"label": "Top Category", "value": "Shopping",   "sub": "Rs. 4,500 spent", "sub_class": "profile-sub-accent"},
+    ]
+
+    transactions = [
+        {"date": "2026-06-20", "description": "Dinner with friends",     "category": "Food",          "amount": "Rs. 1,100"},
+        {"date": "2026-06-17", "description": "Stationery",              "category": "Other",         "amount": "Rs. 600"},
+        {"date": "2026-06-14", "description": "Shoes from Dolmen",       "category": "Shopping",      "amount": "Rs. 4,500"},
+        {"date": "2026-06-11", "description": "Cinema tickets",          "category": "Entertainment", "amount": "Rs. 2,000"},
+        {"date": "2026-06-09", "description": "Pharmacy",                "category": "Health",        "amount": "Rs. 1,200"},
+        {"date": "2026-06-06", "description": "Electricity bill",        "category": "Bills",         "amount": "Rs. 3,500"},
+        {"date": "2026-06-04", "description": "Uber to office",          "category": "Transport",     "amount": "Rs. 250"},
+        {"date": "2026-06-02", "description": "Biryani from Burns Road", "category": "Food",          "amount": "Rs. 850"},
+    ]
+
+    categories = [
+        {"name": "Shopping",      "amount": "Rs. 4,500", "width_class": "profile-bar-w30"},
+        {"name": "Bills",         "amount": "Rs. 3,500", "width_class": "profile-bar-w25"},
+        {"name": "Entertainment", "amount": "Rs. 2,000", "width_class": "profile-bar-w15"},
+        {"name": "Food",          "amount": "Rs. 1,950", "width_class": "profile-bar-w15"},
+        {"name": "Health",        "amount": "Rs. 1,200", "width_class": "profile-bar-w10"},
+        {"name": "Other",         "amount": "Rs. 600",   "width_class": "profile-bar-w05"},
+        {"name": "Transport",     "amount": "Rs. 250",   "width_class": "profile-bar-w05"},
+    ]
+
+    return render_template(
+        "profile.html",
+        user=user, stats=stats, transactions=transactions, categories=categories,
+    )
 
 
 @app.route("/expenses/add")
